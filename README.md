@@ -41,7 +41,7 @@ Each of these is a real rig, a model of it, and the gap between them.
 
 | | |
 |---|---|
-| **[csc210-csc530-assessment](https://github.com/Samarth030312/csc210-csc530-assessment)** | A self-hosted coding-quiz platform — Moodle, CodeRunner and Jobe in Docker — for running programming assessments at course scale. |
+| **csc210-csc530-assessment** *(private)* | A self-hosted coding-quiz platform — Moodle, CodeRunner and Jobe in Docker — for running programming assessments at course scale. |
 
 ---
 
