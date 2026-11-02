@@ -8,18 +8,14 @@ parameters, and the runs that went wrong along with what changed afterwards.
 
 ## Autonomous driving
 
-**Bosch Future Mobility Challenge 2026** — team OdyssiX. A 1:10 scale car that has to drive an
-urban circuit unaided: lane keeping, signs and traffic lights, intersections, parking. I work
-on both halves of the stack.
+**Bosch Future Mobility Challenge 2026** — team OdyssiX. A 1:10 scale car driving an urban
+circuit unaided: lane keeping, signs and traffic lights, intersections, parking. Two
+repositories, talking to each other over micro-ROS at 460 800 baud.
 
-- **Brain** — Raspberry Pi, Python. Perception and planning, the state machine deciding what
-  the car does next, and the message bus between processes.
-- **Embedded Platform** — Nucleo STM32, C++. Speed and steering loops underneath it: encoder
-  feedback, PID, motor and servo drivers, and the serial protocol up to the Brain.
-
-Team repositories are private during the competition. The public baseline they start from is
-the competition's own [Brain](https://github.com/ECC-BFMC/Brain) and
-[Embedded_Platform](https://github.com/ECC-BFMC/Embedded_Platform).
+| | |
+|---|---|
+| [**BFMC2026-Brain**](https://github.com/Samarth030312/BoschFutureMobilityChalleneg2026-Brain) | Jetson Orin Nano, ROS 2 Humble, C++. Perception (lane geometry, free space, detection and tracking), planning (behaviour, global and local paths, mission supervisor, trajectory generation), EKF localisation and drift estimation, a safety layer with watchdog and emergency stop, and operator UI and telemetry. colcon, CycloneDDS, Docker for the driver containers. |
+| [**BFMC2026-Embedded**](https://github.com/Samarth030312/BoschFutureMobilityChallenge2026-Embedded) | STM32F401RE Nucleo, C, FreeRTOS. BNO085 IMU read at 100 Hz over I²C on an interrupt, published over micro-ROS; TIM2 PWM out to the steering servo and a Quicrun ESC against a bench-calibrated map; a 500 ms command-silence deadman that returns both to neutral. 1 kHz loop, minimal ISRs, lock-free UART ring. |
 
 [**thin-structure-segmentation-evaluation**](https://github.com/Samarth030312/thin-structure-segmentation-evaluation)
 — mean-IoU under-reports thin structures like lane lines, and the size of the error follows
@@ -44,7 +40,11 @@ A rig, a model of it, and the gap between the two.
 |---|---|
 | [**rigid-body-simulator**](https://github.com/Samarth030312/rigid-body-simulator) | 3D rigid-body dynamics in MATLAB from Newton–Euler up: a thrown die whose landing face is read off the simulated orientation, a 3R arm with recursive Newton–Euler dynamics, a four-bar linkage solved through loop closure. Interactive app, 118 tests, CI on Linux, Windows and macOS. |
 
-## Teaching and tooling
+## Elsewhere
+
+[**Alpino**](https://github.com/Samarth030312/Alpino) — decision-support tooling for a health
+foods business: OCR invoice reconciliation, attrition risk scoring, RFM segmentation, behind a
+Streamlit front end. Python, not control.
 
 **csc210-csc530-assessment** *(private)* — self-hosted coding-quiz platform on Moodle,
 CodeRunner and Jobe in Docker, for running programming assessments at course scale.
