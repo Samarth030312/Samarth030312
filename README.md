@@ -14,7 +14,7 @@ repositories, talking to each other over micro-ROS at 460 800 baud.
 
 | | |
 |---|---|
-| [**BFMC2026-Brain**](https://github.com/Samarth030312/BoschFutureMobilityChalleneg2026-Brain) | Jetson Orin Nano, ROS 2 Humble, C++. Perception (lane geometry, free space, detection and tracking), planning (behaviour, global and local paths, mission supervisor, trajectory generation), EKF localisation and drift estimation, a safety layer with watchdog and emergency stop, and operator UI and telemetry. colcon, CycloneDDS, Docker for the driver containers. |
+| [**BFMC2026-Brain**](https://github.com/Samarth030312/BoschFutureMobilityChallenge2026-Brain) | Jetson Orin Nano, ROS 2 Humble, C++. Perception (lane geometry, free space, detection and tracking), planning (behaviour, global and local paths, mission supervisor, trajectory generation), EKF localisation and drift estimation, a safety layer with watchdog and emergency stop, and operator UI and telemetry. colcon, CycloneDDS, Docker for the driver containers. |
 | [**BFMC2026-Embedded**](https://github.com/Samarth030312/BoschFutureMobilityChallenge2026-Embedded) | STM32F401RE Nucleo, C, FreeRTOS. BNO085 IMU read at 100 Hz over I²C on an interrupt, published over micro-ROS; TIM2 PWM out to the steering servo and a Quicrun ESC against a bench-calibrated map; a 500 ms command-silence deadman that returns both to neutral. 1 kHz loop, minimal ISRs, lock-free UART ring. |
 
 [**thin-structure-segmentation-evaluation**](https://github.com/Samarth030312/thin-structure-segmentation-evaluation)
