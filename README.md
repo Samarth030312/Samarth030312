@@ -35,7 +35,7 @@ Each of these is a real rig, a model of it, and the gap between them.
 
 | | |
 |---|---|
-| **[rigid-body-simulator](https://github.com/Samarth030312/rigid-body-simulator)** | Three-dimensional rigid-body dynamics in MATLAB: a tumbling die whose face is read from the simulated orientation rather than chosen, a 3R manipulator with recursive Newton–Euler dynamics, and a four-bar linkage solved through its loop-closure constraint. An interactive lab app and 115 tests. |
+| **[rigid-body-simulator](https://github.com/Samarth030312/rigid-body-simulator)** | Three-dimensional rigid-body dynamics in MATLAB: a tumbling die whose face is read from the simulated orientation rather than chosen, a 3R manipulator with recursive Newton–Euler dynamics, and a four-bar linkage solved through its loop-closure constraint. An interactive lab app and 118 tests. |
 
 ## Teaching and tooling
 
