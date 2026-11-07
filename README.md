@@ -6,6 +6,30 @@ runs it, model the plant, and measure how far the model was off.
 The repositories carry the measurements as well as the code: step responses, identified
 parameters, and the runs that went wrong along with what changed afterwards.
 
+## Industrial robotics
+
+**KR3 cell platform** *(private, in progress)* — a simulation-first ROS 2 Humble platform for
+the university lab's KUKA KR 3 R540 on a KR C4 compact. One launch file, one argument: the
+same applications run against a mock arm (L0), Gazebo physics (L1), a simulator of KUKA's
+RSI protocol (L2) and, next, the real controller (L3). C++ only, with an RSI protocol stack in C
+and its own ros2_control driver.
+
+- **Applications** — MoveIt 2 and Servo teleoperation, randomized pick-and-place, palletizing,
+  conveyor picking, welding and dispensing paths, all gated by a cell supervisor (modes,
+  watchdog, speed limit) that sits in front of every motion.
+- **Physics, not bookkeeping** — at L1 every part in the planning scene is mirrored into Gazebo,
+  carried while grasped, then left to fall and settle; the measured rest pose goes back into
+  the planner. The first runs found what L0 could not: a brick-bond pallet pattern that is
+  unstable at that pitch, a 3 mm release clearance the stack height had absorbed, and a
+  carried body accumulating velocity under gravity.
+- **Every run recorded** — MCAP bags and an SQLite experiment database tied by run id, with
+  the git commit, model and controller-config hashes, per-joint tracking error and
+  application metrics. Runs whose setup failed are flagged and kept out of the statistics; a
+  daily report is generated from the database. 189 tests in CI.
+- **Next** — commission the real arm (mastering, network, read-only inventory), shadow mode
+  with the digital twin following the real joints, then a calibration loop until simulation
+  and arm agree within 0.2° RMS on trajectories not used for tuning; gripper selection after.
+
 ## Autonomous driving
 
 **Bosch Future Mobility Challenge 2026** — team OdyssiX. A 1:10 scale car driving an urban
@@ -55,5 +79,5 @@ How I work: conventions, frames and units fixed in writing before any code; resu
 against a closed form, a conservation law or a second derivation; the number kept rather than
 the impression; and one entry point plus CI, so it runs on someone else's machine too.
 
-**Tools** — MATLAB and Simulink · C/C++ on STM32 and Arduino · Python · Modelica · Docker ·
-Git and GitHub Actions
+**Tools** — MATLAB and Simulink · C/C++ on STM32 and Arduino · ROS 2, MoveIt 2, ros2_control,
+Gazebo · Python · Modelica · Docker · Git and GitHub Actions
