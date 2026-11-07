@@ -81,3 +81,12 @@ the impression; and one entry point plus CI, so it runs on someone else's machin
 
 **Tools** — MATLAB and Simulink · C/C++ on STM32 and Arduino · ROS 2, MoveIt 2, ros2_control,
 Gazebo · Python · Modelica · Docker · Git and GitHub Actions
+
+**Industrial robotics** *(from the KR3 platform)* — KUKA KR C4 and RSI over UDP, with a
+protocol stack in C and a controller simulator to test it against · ros2_control hardware
+interfaces and trajectory tracking · MoveIt 2 with Pilz industrial motions (PTP, LIN, CIRC) and
+Servo · Gazebo Fortress physics co-simulation · a cell supervisor state machine with motion gate
+and watchdog · fidelity levels from mock hardware through physics and protocol simulation to
+the real arm · rosbag2 MCAP, an SQLite experiment database and Foxglove for analysis · Docker
+with the NVIDIA container toolkit and resource limits · gtest end-to-end launch tests,
+sanitizers and CI
