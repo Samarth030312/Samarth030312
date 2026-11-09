@@ -11,8 +11,8 @@ parameters, and the runs that went wrong along with what changed afterwards.
 **KR3 cell platform** *(private, in progress)* — a simulation-first ROS 2 Humble platform for
 the university lab's KUKA KR 3 R540 on a KR C4 compact. One launch file, one argument: the
 same applications run against a mock arm (L0), Gazebo physics (L1), a simulator of KUKA's
-RSI protocol (L2) and, next, the real controller (L3). C++ only, with an RSI protocol stack in C
-and its own ros2_control driver.
+RSI protocol (L2) and the real controller (L3), which now runs in the loop. C++ only, with an
+RSI protocol stack in C and its own ros2_control driver.
 
 - **Applications** — MoveIt 2 and Servo teleoperation, randomized pick-and-place, palletizing,
   conveyor picking, welding and dispensing paths, all gated by a cell supervisor (modes,
@@ -25,10 +25,14 @@ and its own ros2_control driver.
 - **Every run recorded** — MCAP bags and an SQLite experiment database tied by run id, with
   the git commit, model and controller-config hashes, per-joint tracking error and
   application metrics. Runs whose setup failed are flagged and kept out of the statistics; a
-  daily report is generated from the database. 189 tests in CI.
-- **Next** — commission the real arm (mastering, network, read-only inventory), shadow mode
-  with the digital twin following the real joints, then a calibration loop until simulation
-  and arm agree within 0.2° RMS on trajectories not used for tuning; gripper selection after.
+  daily report is generated from the database. 222 tests (CI and local runs).
+- **On the real arm** — the KR C4 in the loop over RSI: kinematics within 0.009 mm on 20
+  poses, ~760 moves driven from the cell PC (in automatic mode behind the cell's guard), every
+  one within 0.002°, ~830 000 real-time packets with none missed, fault stops measured on steel.
+  The recordings identified a ~31 ms controller dead time; with it the digital twin matches the
+  real arm within 0.007° RMS on sessions not used for the fit.
+- **Next** — the same calibration for the physics level, wider motion ranges over RSI,
+  gripper selection and integration.
 
 ## Autonomous driving
 
