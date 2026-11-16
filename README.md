@@ -8,7 +8,7 @@ parameters, and the runs that went wrong along with what changed afterwards.
 
 ## Industrial robotics
 
-**KR3 cell platform** *(private, in progress)* — a simulation-first ROS 2 Humble platform for
+**[KR3 sim-to-real](https://github.com/Samarth030312/kr3-sim-to-real)** — a simulation-first ROS 2 Humble platform for
 the university lab's KUKA KR 3 R540 on a KR C4 compact. One launch file, one argument: the
 same applications run against a mock arm (L0), Gazebo physics (L1), a simulator of KUKA's
 RSI protocol (L2) and the real controller (L3), which now runs in the loop. C++ only, with an
